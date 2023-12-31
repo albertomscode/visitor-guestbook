@@ -7,7 +7,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.get("/books", function (request, response) {
+app.get("/", function (request, response) {
     const books = db.prepare("SELECT * FROM books").all();
     response.json(books);
 });
@@ -24,6 +24,6 @@ app.post("/books", function (request, response) {
     response.json(newBook);
 });
 
-app.listen(5173, function () {
+app.listen(5174, function () {
     console.log("IT'S WORKING!");
   });
