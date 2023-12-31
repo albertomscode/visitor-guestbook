@@ -7,21 +7,21 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.get("/jokes", function (request, response) {
-    const jokes = db.prepare("SELECT * FROM jokes").all();
-    response.json(jokes);
+app.get("/books", function (request, response) {
+    const books = db.prepare("SELECT * FROM books").all();
+    response.json(books);
 });
 
-app.post("/jokes", function (request, response) {
+app.post("/books", function (request, response) {
     console.log(request.body);
-    const setup = request.body.setup;
-    const punchline = request.body.punchline;
+    const book = request.body.book;
+    const author = request.body.author;
 
-    const newJoke = db
-    .prepare(`INSERT INTO jokes (setup, punchline) VALUES (?, ?)`)
-    .run(setup, punchline);
+    const newBook = db
+    .prepare(`INSERT INTO books (book, author) VALUES (?, ?)`)
+    .run(book, author);
 
-    response.json(newJoke);
+    response.json(newBook);
 });
 
 app.listen(5173, function () {

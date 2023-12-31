@@ -1,13 +1,13 @@
-const form = document.getElementById("jokeForm");
+const form = document.getElementById("bookForm");
 
 form.addEventListener("submit", async function (event) {
   event.preventDefault();
-  // get the joke we've written
+  // get the book we've written
   const formData = new FormData(form);
   const formValues = Object.fromEntries(formData);
 
-  // send the joke to the API
-  const response = await fetch("http://localhost:5173/jokes", {
+  // send the book to the API
+  const response = await fetch("http://localhost:5173/books", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -19,25 +19,24 @@ form.addEventListener("submit", async function (event) {
   console.log(json);
 });
 
-async function getJokes() {
-  // get the jokes from our Database via our API
-  const response = await fetch("http://localhost:5173/jokes");
-  const jokes = await response.json();
+async function getBooks() {
+  // get the books from our Database via our API
+  const response = await fetch("http://localhost:5173/books");
+  const books = await response.json();
 
-  // loop through the jokes and render them on the page
-  jokes.forEach(function (joke) {
+  // loop through the books and render them on the page
+ books.forEach(function (book) {
     const h3 = document.createElement("h3");
     const p = document.createElement("p");
 
-    h3.textContent = joke.setup;
-    p.textContent = joke.punchline;
+    h3.textContent = book.book;
+    p.textContent = book.author;
 
-    const jokeContainer = document.getElementById("jokeContainer");
+    const bookContainer = document.getElementById("bookContainer");
 
-    jokeContainer.appendChild(h3);
-    jokeContainer.appendChild(p);
+    bookContainer.appendChild(h3);
+    bookContainer.appendChild(p);
   });
-  // profit?
 }
 
-getJokes();
+getBooks();
