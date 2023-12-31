@@ -7,7 +7,7 @@ form.addEventListener("submit", async function (event) {
   const formValues = Object.fromEntries(formData);
 
   // send the book to the API
-  const response = await fetch("http://localhost:5173/books", {
+  const response = await fetch("http://localhost:5174/books", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -21,7 +21,7 @@ form.addEventListener("submit", async function (event) {
 
 async function getBooks() {
   // get the books from our Database via our API
-  const response = await fetch("http://localhost:5173/books");
+  const response = await fetch("http://localhost:5174/books");
   const books = await response.json();
 
   // loop through the books and render them on the page
