@@ -1,4 +1,4 @@
-/* Reset de estilos */
+/* Styles Reset */
 body,
 h1,
 form,
@@ -16,7 +16,7 @@ body {
   background-position: center;
 }
 
-/* Estilos generales */
+/* General Styles */
 body {
   background-color: #14736b;
   color: #333;
@@ -71,7 +71,7 @@ button:hover {
   background-color: #28948b;
 }
 
-/* Media Query para dispositivos móviles */
+/* Media Query */
 @media only screen and (max-width: 600px) {
   form {
     max-width: 100%;
