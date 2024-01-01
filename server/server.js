@@ -7,7 +7,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.get("/", function (request, response) {
+app.get("/books", function (request, response) {
     const books = db.prepare("SELECT * FROM books").all();
     response.json(books);
 });
